@@ -12,9 +12,13 @@ Georgios Spithourakis and Sebastian Riedel. Numeracy for Language Models: Evalua
 Dependencies
 ==============
 pip install beautifulsoup4
+
 pip install lxml (for windows, download from http://www.lfd.uci.edu/~gohlke/pythonlibs/)
+
 pip install spacy  (might additionally need: conda install libgcc)
+
 python -m spacy download en
+
 Glove embeddings from:  https://nlp.stanford.edu/projects/glove/
 
 
@@ -22,25 +26,36 @@ Download and Preprocess Data
 ============================
 
 ## download and extract data
+
 latexml.download_arxmliv.py
+
 [dataset].extract_to_json.py
+
 latexml.xml_to_text.py
 
 ## process text
+
 json_to_tsv.py
+
 tsv_to_annotated.py
 
 ## process tables
+
 [dataset].tables_to_processed.py
+
 tables_processed_to_annotated.py
 
 ## build vocab and bucket
+
 dataset.common.join_all.py
+
 preproc.build_vocab.py
+
 preproc.bucketing.py
 
 Train and Test Language Models
 ==============================
+
 python lm_jtr.py
 --data [clinical|arxmliv]
 --train number_of_epochs
@@ -52,20 +67,26 @@ python lm_jtr.py
 
 e.g.
 
-python lm_jtr.py --data arxmliv --no-inspect --train 500 --batch 50 --config a1  # train model
+python lm_jtr.py --data arxmliv --no-inspect --no-test --train 500 --batch 50 --config a1  # train model
 
 python lm_jtr.py --data arxmliv --no-inspect --load a1_2018_02_18_11_55_11_arxmliv   # test model
 
-python lm_jtr.py --data arxmliv --load --no-test a1_2018_02_18_11_55_11_arxmliv   # get plots and other diagnostics
+python lm_jtr.py --data arxmliv --no-test --load  a1_2018_02_18_11_55_11_arxmliv   # get plots and other diagnostics
 
 
 ## config options
 a1: softmax
+
 a2: softmax+rnn
+
 a3: h-softmax
+
 a4: h-softmax+rnn
+
 b1: d-RNN
+
 b2: MoG
+
 c1: combination
 
 
