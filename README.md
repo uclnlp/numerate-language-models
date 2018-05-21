@@ -57,12 +57,19 @@ Train and Test Language Models
 ==============================
 
 python lm_jtr.py
+
 --data [clinical|arxmliv]
+
 --train number_of_epochs
+
 --batch batch_size
+
 --config [a1|a2|a3|a4|b1|b2|c1]  # strategy for outputting numerals (inferred if model is loaded)
+
 --no-test    # to suppress test-time evaluation
+
 --no-inspect # to suppress diagnostics (plots, intermediata values, etc)
+
 --load a1_2018_02_17_16_50_13_clinical
 
 e.g.
